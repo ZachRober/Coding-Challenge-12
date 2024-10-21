@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Basics Challenge 12</title>
+</head>
+<body>
+    <h1>Canvas App</h1>
+    <canvas id="drawing-canvas" width="600" height="300" style="border:3px solid black">
+    </canvas>
+<form>
+    <button id="clear-canvas"> Clear Canvas </button>
+    <p> Select Drawing Tool</p> 
+    <input type="radio" id="lines" name="radio-list" value="Line">
+    <label for="lines">Line</label><br>
+    <input type="radio" id="circle" name="radio-list" value="Circle">
+    <label for="circle">Circle</label><br>
+    <input type="radio" id="rectangle" name="radio-list" value="Rectangle">
+    <label for="rectangle">Rectangle</label>
+    <br>
+    <p> Select Color</p>
+    <input type="color" id="color-selector" value="#ff0000">
+</form>
+    <script src="app.js"></script>
+</body>
+</html>
