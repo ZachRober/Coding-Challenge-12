@@ -9,10 +9,12 @@ myCanvas.addEventListener('mouseup', stopDraw);
 myCanvas.addEventListener('mousemove', draw);
 clearButton.addEventListener('click', clearCanvas);
 colorSelector.addEventListener('change', colorSelection);
+myButtons.forEach(button=>{button.addEventListener('click',mode);})
 
+
+let currentMode = "Line"
 let drawing = false;
 let currentColor = 'black'; // Default color
-let lineWidth = 5; // Increase line width for visibility
 
 function startDraw(event) {
     drawing = true;
@@ -25,17 +27,13 @@ function stopDraw() {
 }
 
 function draw(event) {
-    if (!drawing) return;
-
-    ctx.lineWidth = lineWidth; // Set the line width
+    if (drawing===false) return;
+    ctx.lineWidth = 5; // Set the line width
     ctx.lineCap = 'round'; 
     ctx.strokeStyle = currentColor; 
-
-    
     const rect = myCanvas.getBoundingClientRect();
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
-
     ctx.lineTo(x, y); // Draw a line to the current position
     ctx.stroke(); // Render the line
     ctx.beginPath(); 
@@ -49,4 +47,8 @@ function clearCanvas(event) {
 
 function colorSelection(event) {
     currentColor = event.target.value; // Set selected color
+}
+function mode(event){
+    currentMode = event.target.value;
+    console.log(currentMode);
 }
